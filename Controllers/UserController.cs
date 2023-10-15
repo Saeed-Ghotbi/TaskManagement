@@ -41,7 +41,7 @@ namespace TaskManagement.Controllers
         public async Task<ActionResult<User>> Get(int id)
         {
             var user = await _userRepository.GetUser(id);
-            if (user == null) { return NoContent(); }
+            if (user == null) { return NotFound(); }
             return Ok(user);
 
         }
@@ -97,8 +97,15 @@ namespace TaskManagement.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var user = await _userRepository.Get(id);
+
+            if (user == null) { return NotFound(); }
+
+            await _userRepository.Delete(user);
+
+            return NoContent();
         }
     }
 }

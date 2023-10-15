@@ -49,6 +49,9 @@ namespace TaskManagement.App_Start
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             builder.Services.AddScoped(typeof(IProfileUserRepository), typeof(ProfileUserRepository));
+            builder.Services.AddScoped(typeof(IStatusRepository), typeof(StatusRepository));
+            builder.Services.AddScoped(typeof(ISubjectRepository), typeof(SubjectRepository));
+            builder.Services.AddScoped(typeof(ITaskRepository), typeof(TaskRepository));
 
 
 

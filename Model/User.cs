@@ -13,5 +13,6 @@ namespace TaskManagement.Model
         public int FailedLogin { get; set; }
 
         public ProfileUser? ProfileUser { get; set; }
+        public ICollection<Task>? Tasks { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TaskManagement.Context;
@@ -11,9 +12,11 @@ using TaskManagement.Context;
 namespace TaskManagement.Migrations
 {
     [DbContext(typeof(TaskManagementContext))]
-    partial class TaskManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20231014113056_addTables")]
+    partial class addTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,16 +103,6 @@ namespace TaskManagement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Status");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CDT = new DateTime(2023, 10, 14, 15, 46, 50, 517, DateTimeKind.Local).AddTicks(2864),
-                            Creator = 0,
-                            MDT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "دیده نشده"
-                        });
                 });
 
             modelBuilder.Entity("TaskManagement.Model.Subject", b =>
@@ -136,16 +129,6 @@ namespace TaskManagement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Subject");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CDT = new DateTime(2023, 10, 14, 15, 46, 50, 517, DateTimeKind.Local).AddTicks(2844),
-                            Creator = 0,
-                            MDT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "فنی"
-                        });
                 });
 
             modelBuilder.Entity("TaskManagement.Model.Task", b =>
@@ -190,20 +173,6 @@ namespace TaskManagement.Migrations
                     b.HasIndex("SubjectId");
 
                     b.ToTable("Task");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AssignmentId = 1,
-                            CDT = new DateTime(2023, 10, 14, 15, 46, 50, 517, DateTimeKind.Local).AddTicks(2821),
-                            Description = "باگ صفحه ادمین هنگام لاگین مشکل دارد.",
-                            MDT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Seen = false,
-                            StatusId = 1,
-                            SubjectId = 1,
-                            Title = "رفع باگ صفحه ادمین"
-                        });
                 });
 
             modelBuilder.Entity("TaskManagement.Model.User", b =>
@@ -238,7 +207,7 @@ namespace TaskManagement.Migrations
                         new
                         {
                             Id = 1,
-                            CDT = new DateTime(2023, 10, 14, 15, 46, 50, 517, DateTimeKind.Local).AddTicks(2610),
+                            CDT = new DateTime(2023, 10, 14, 15, 0, 55, 333, DateTimeKind.Local).AddTicks(2409),
                             FailedLogin = 0,
                             IsActive = true,
                             LastLogin = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -247,7 +216,7 @@ namespace TaskManagement.Migrations
                         new
                         {
                             Id = 2,
-                            CDT = new DateTime(2023, 10, 14, 15, 46, 50, 517, DateTimeKind.Local).AddTicks(2624),
+                            CDT = new DateTime(2023, 10, 14, 15, 0, 55, 333, DateTimeKind.Local).AddTicks(2432),
                             FailedLogin = 0,
                             IsActive = true,
                             LastLogin = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
